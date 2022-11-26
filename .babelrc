@@ -7,5 +7,6 @@
       }
     ]
   ],
-  "presets": ["next/babel", "@babel/preset-typescript"]
+  "presets": ["next/babel", "@babel/preset-typescript"],
+  "compact": true
 }
