@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
+interface ButtonProps {
+  small?: boolean
+}
+
+export const Button = styled.button<ButtonProps>`
   outline: none;
-  background-color: var(--yellow);
+  background-color: ${(props) =>
+    props.small ? 'var(--purple)' : 'var(--yellow)'};
   color: var(--black);
   border-radius: 14px;
   margin-top: 64px;
