@@ -14,4 +14,5 @@ export const Title = styled.h1`
   color: var(--green);
   font-size: 6.4rem;
   font-weight: bold;
+  margin-bottom: 6.4rem;
 `
