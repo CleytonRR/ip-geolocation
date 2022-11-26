@@ -5,6 +5,9 @@ export const Header = styled.header`
   background-image: url(${background.src});
   height: 687px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Title = styled.h1`
