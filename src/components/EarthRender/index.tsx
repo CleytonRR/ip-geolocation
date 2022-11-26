@@ -14,9 +14,9 @@ export default function Render3D() {
     <Container3d>
       <Canvas>
         <Suspense fallback={null}>
-          <pointLight position={[10, 5, 10]} />
+          <pointLight position={[30, 5, 10]} />
           <Earth />
-          <OrbitControls autoRotate />
+          <OrbitControls autoRotate enableZoom={false} />
         </Suspense>
       </Canvas>
     </Container3d>

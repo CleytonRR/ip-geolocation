@@ -15,7 +15,7 @@ export function Earth(props) {
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+        <group rotation={[Math.PI / 2, 0, 0]} scale={0.44}>
           <group scale={6.74}>
             <mesh
               geometry={nodes.pSphere1_color_0.geometry}
