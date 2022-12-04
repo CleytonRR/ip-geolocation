@@ -1,4 +1,5 @@
 import Hero from 'components/Hero'
+import InfoLocation from 'components/Info-Location'
 import InputForm from 'components/Input'
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Hero />
       <InputForm />
+      <InfoLocation />
     </>
   )
 }
