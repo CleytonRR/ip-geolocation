@@ -4,8 +4,11 @@ import client from 'utils/api'
 import maskIp from './formtIp'
 import * as S from './style'
 
+import { ApiResponse } from 'types/ApiResponse'
+
 const InputForm = () => {
   const [ip, setIp] = useState('')
+  const [error, setError] = useState(false)
 
   function handleIp(e: React.ChangeEvent<HTMLInputElement>) {
     const inputIp = e.target.value
@@ -16,22 +19,35 @@ const InputForm = () => {
 
   async function submitForm(e: React.ChangeEvent<HTMLFormElement>) {
     e.preventDefault()
-    const ipLocationInfo = await client.get(`/${ip}`)
 
-    console.log(ipLocationInfo.data)
+    setError(false)
+
+    try {
+      const { data } = await client.get<ApiResponse>(`/${ip}`)
+
+      if (data.message === 'invalid query') {
+        setError(true)
+        return
+      }
+    } catch (error) {
+      setError(true)
+    }
   }
 
   return (
-    <S.ContainerInput onSubmit={submitForm}>
-      <S.Input
-        value={ip}
-        onChange={handleIp}
-        placeholder="Digite o IP"
-        maxLength={15}
-        required
-      />
+    <S.ContainerForm onSubmit={submitForm} error={error}>
+      <S.ContainerInput error={error}>
+        <S.Input
+          value={ip}
+          onChange={handleIp}
+          placeholder="Digite o IP"
+          maxLength={15}
+          required
+        />
+        <span>Erro ao buscar ip</span>
+      </S.ContainerInput>
       <Button small>Buscar</Button>
-    </S.ContainerInput>
+    </S.ContainerForm>
   )
 }
 
