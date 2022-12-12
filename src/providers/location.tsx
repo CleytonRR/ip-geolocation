@@ -14,7 +14,7 @@ export const ApiProvider: React.FC<ApiProviderProps> = ({ children }) => {
 
   return (
     <ApiLocationContext.Provider
-      value={{ ...apiLocation, setApiResponse: setapiLocation }}
+      value={{ ...apiLocation, updateLocation: setapiLocation }}
     >
       {children}
     </ApiLocationContext.Provider>

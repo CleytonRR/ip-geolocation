@@ -17,5 +17,5 @@ export interface ApiResponse {
 }
 
 export interface UpdateApiResponseData {
-  setApiResponse?(apiResponse: ApiResponse): void
+  updateLocation?(apiResponse: ApiResponse): void
 }
