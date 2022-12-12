@@ -1,19 +1,21 @@
 import Image from 'next/image'
 
 import * as S from './style'
-import country from 'assets/country.svg'
-import city from 'assets/city.svg'
+import countryIcon from 'assets/country.svg'
+import cityIcon from 'assets/city.svg'
+import { useApiLocation } from 'hooks/useApilocation'
 
 const InfoLocation = () => {
+  const { city, country } = useApiLocation()
   return (
     <S.Container>
       <S.InfoBox>
-        <Image src={country} alt="Pointer Map" />
-        <p>Brazil</p>
+        <Image src={countryIcon} alt="Pointer Map" />
+        <p>{country || '-'}</p>
       </S.InfoBox>
       <S.InfoBox>
-        <Image src={city} alt="Two builders" />
-        <p>Santa Catarina</p>
+        <Image src={cityIcon} alt="Two builders" />
+        <p>{city || '-'}</p>
       </S.InfoBox>
     </S.Container>
   )

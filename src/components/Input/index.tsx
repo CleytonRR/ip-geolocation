@@ -5,10 +5,13 @@ import maskIp from './formtIp'
 import * as S from './style'
 
 import { ApiResponse } from 'types/ApiResponse'
+import { useApiLocation } from 'hooks/useApilocation'
 
 const InputForm = () => {
   const [ip, setIp] = useState('')
   const [error, setError] = useState(false)
+
+  const { updateLocation } = useApiLocation()
 
   function handleIp(e: React.ChangeEvent<HTMLInputElement>) {
     const inputIp = e.target.value
@@ -28,6 +31,10 @@ const InputForm = () => {
       if (data.message === 'invalid query') {
         setError(true)
         return
+      }
+
+      if (data && updateLocation) {
+        updateLocation(data)
       }
     } catch (error) {
       setError(true)
