@@ -1,5 +1,4 @@
-<h1 style="text-align: center;">Geo-Location IP :world_map:</h1>
-
+<h1 align="center">Geo-Location IP :world_map:</h1>
 
 Projeto feito utilizando NextJs, Typescript, Styled-Components Leaflet, Threejs, React-Leaflet, tem como
 Buscar a localização baseada em ip fornecido e marcar o ponto no mapa.
